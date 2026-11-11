@@ -1,16 +1,60 @@
-const number = 5;
+const grades = [1, 4, 2, 7, 6, 1];
 
-console.log("Таблиця множення (for):");
+// Завдання 1. Виведення оцінок
+console.log("Оцінки студента:");
 
-for (let i = 1; i <= 10; i++) {
-    console.log(`${number} x ${i} = ${number * i}`);
+for (let i = 0; i < grades.length; i++) {
+    console.log(grades[i]);
 }
 
-console.log("Таблиця множення (while):");
+console.log("Кількість оцінок:", grades.length);
 
-let i = 1;
+// Завдання 2. Підрахунок середнього бала
+function calculateAverage(grades) {
+    let sum = 0;
 
-while (i <= 10) {
-    console.log(`${number} x ${i} = ${number * i}`);
-    i++;
+    for (let i = 0; i < grades.length; i++) {
+        sum += grades[i];
+    }
+
+    return sum / grades.length;
 }
+
+// Завдання 3. Пошук найвищої оцінки
+function findMaxGrade(grades) {
+    let max = grades[0];
+
+    for (let i = 1; i < grades.length; i++) {
+        if (grades[i] > max) {
+            max = grades[i];
+        }
+    }
+
+    return max;
+}
+
+// Завдання 4. Підрахунок високих оцінок
+function countHighGrades(grades) {
+    let count = 0;
+
+    for (let i = 0; i < grades.length; i++) {
+        if (grades[i] >= 10) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+// Завдання 5. Виведення загального результату
+function showResults(grades) {
+    console.log("===== АНАЛІЗ ОЦІНОК =====");
+    console.log("Оцінки студента:", grades.join(", "));
+    console.log("Кількість оцінок:", grades.length);
+    console.log("Середній бал:", calculateAverage(grades));
+    console.log("Найвища оцінка:", findMaxGrade(grades));
+    console.log("Кількість високих оцінок:", countHighGrades(grades));
+    console.log("=========================");
+}
+
+showResults(grades);
